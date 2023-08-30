@@ -1,0 +1,15 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          monocloud:
+            client-id: <your-client-id>
+            client-secret: <your-client-secret>
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          monocloud:
+            issuer-uri: https://<your-domain>
