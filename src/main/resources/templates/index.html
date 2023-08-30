@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quickstart Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div th:switch="${isAuthenticated}">
+    <div th:case="false">
+        <p>Welcome</p>
+        <form method="post" th:action="@{/oauth2/authorization/monocloud}">
+            <button id="login-button" type="submit" class="btn btn-success">Login</button>
+        </form>
+    </div>
+    <div th:case="true">
+        <p th:text="'Welcome, ' + ${details.given_name} + '!'" />
+        <form method="post" th:action="@{/logout}">
+            <button id="logout-button" type="submit" class="btn btn-success">Logout</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
